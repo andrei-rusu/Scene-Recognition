@@ -1,0 +1,31 @@
+
+---- Run 1 ----
+
+*********************** Overall Results ***********************
+          Total instances: 300,000
+            Total correct: 70,000
+          Total incorrect: 230,000
+                 Accuracy: 0,233
+               Error Rate: 0,767
+   Average Class Accuracy: 0,233
+ Average Class Error Rate: 0,767
+
+********************** Per Class Results **********************
+Class	Class Accuracy	Class Error Rate	Actual Count	Predicted Count
+TallBuilding	0,150	0,850	20,000000	8,000000
+   Highway	0,750	0,250	20,000000	67,000000
+    Street	0,650	0,350	20,000000	35,000000
+  Mountain	0,350	0,650	20,000000	30,000000
+livingroom	0,000	1,000	20,000000	3,000000
+     store	0,050	0,950	20,000000	2,000000
+   bedroom	0,050	0,950	20,000000	6,000000
+     Coast	0,450	0,550	20,000000	45,000000
+    Office	0,250	0,750	20,000000	13,000000
+Insidecity	0,100	0,900	20,000000	19,000000
+   kitchen	0,000	1,000	20,000000	1,000000
+OpenCountry	0,250	0,750	20,000000	41,000000
+    Forest	0,100	0,900	20,000000	7,000000
+    Suburb	0,300	0,700	20,000000	21,000000
+industrial	0,050	0,950	20,000000	2,000000
+
+
