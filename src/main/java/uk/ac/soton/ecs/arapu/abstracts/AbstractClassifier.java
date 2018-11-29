@@ -60,8 +60,8 @@ public abstract class AbstractClassifier <T extends Annotator<IdentifiableObject
     	GroupedDataset<String, ListDataset<IdentifiableObject<FImage>>, IdentifiableObject<FImage>> groupedDataset = new MapBackedDataset<>();
     	
     	ListDataset<IdentifiableObject<FImage>> idData = data.toIdentifiable();
-    	
-    	Parallel.forEach(idData, (idImg) -> {
+    	if(isParallelizeClassification()) {
+    		Parallel.forEach(idData, (idImg) -> {
             	
                 String prediction = getMostLikelyPrediction(annotator.classify(idImg));
                 
@@ -79,7 +79,29 @@ public abstract class AbstractClassifier <T extends Annotator<IdentifiableObject
                     
                     listDataset.add(idImg);
                 }     
-        });
+    		});
+    	}else {
+    		for(IdentifiableObject<FImage> idImg :idData) {
+    			String prediction = getMostLikelyPrediction(annotator.classify(idImg));
+                
+                ListDataset<IdentifiableObject<FImage>> listDataset;
+                
+                synchronized (groupedDataset) {
+                	
+                    if (groupedDataset.containsKey(prediction)) {
+                    	listDataset = groupedDataset.getInstances(prediction);
+                    } 
+                    else {
+                    	listDataset = new ListBackedDataset<>();
+                    	groupedDataset.put(prediction, listDataset);
+                    }
+                    
+                    listDataset.add(idImg);
+                } 
+    		}
+    	}
+    	
+    	
     	
         return groupedDataset;    	
     }
@@ -130,4 +152,5 @@ public abstract class AbstractClassifier <T extends Annotator<IdentifiableObject
     
     
     public abstract AnnotatorAdapter<T> getAnnotatorAdapter();
+    public abstract boolean isParallelizeClassification();
 }

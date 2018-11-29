@@ -49,7 +49,7 @@ public class App {
             // Run 2 - Using SimpleBoVWClassifier
 //            run(train, test, new SimpleBOWClassifier(8, 4, 500), "2", true, true);
             // Run 3
-            run(train, test, new PHOWClassifier(7, 3, 600), "3", false, true); 
+            run(train, test, new PHOWClassifier(7, 5, 600), "4", true, true); 
             
         } catch (IOException e) {
             e.printStackTrace();

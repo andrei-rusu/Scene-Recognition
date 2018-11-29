@@ -31,7 +31,7 @@ import uk.ac.soton.ecs.arapu.abstracts.AnnotatorAdapter;
 
 public class PHOWAnnotator implements AnnotatorAdapter<LiblinearAnnotator<IdentifiableObject<FImage>,String>> {
 	
-	private final static String MODEL_FOLDER = "models/run3/";
+	private final static String MODEL_FOLDER = "models/run4/";
 	private final static String featuresFileName = "features.in";
 	private final static String assignerFileName = "assigner.in";
 	

@@ -25,4 +25,10 @@ public class TinyImageClassifier extends AbstractClassifier<KNNAnnotator<Identif
 		return new TinyImageAnnotator(k);
 	}
 
+	@Override
+	public boolean isParallelizeClassification() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }

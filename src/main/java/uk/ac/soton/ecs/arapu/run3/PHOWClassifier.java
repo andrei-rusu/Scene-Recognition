@@ -40,8 +40,14 @@ public class PHOWClassifier extends AbstractClassifier<LiblinearAnnotator<Identi
 
         // Wrapping the DenseSIFT in a PyramidDenseSIFT object 
         // magFactor=5f offers smoothness before extracting the features; scale levels 4,6,8,10 chosen based on the tutorial
-        PyramidDenseSIFT<FImage> pdsift = new PyramidDenseSIFT<>(dsift, 5f, 4, 6, 8, 10);
+        PyramidDenseSIFT<FImage> pdsift = new PyramidDenseSIFT<>(dsift, 6f, 5);
 
         return new PHOWAnnotator(kernelMap, pdsift, kForClustering);
     }
+
+	@Override
+	public boolean isParallelizeClassification() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

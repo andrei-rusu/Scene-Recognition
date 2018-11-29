@@ -25,4 +25,10 @@ public class SimpleBOWClassifier extends AbstractClassifier<LiblinearAnnotator<I
 
 		return new SimpleBOWAnnotator(patchSize, patchDensity, kForClustering);
 	}
+
+	@Override
+	public boolean isParallelizeClassification() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }
